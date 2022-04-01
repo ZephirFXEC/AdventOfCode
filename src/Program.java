@@ -2,17 +2,20 @@ package src;
 import java.io.*;
 import java.net.*;
 import java.util.*;
+import java.util.concurrent.LinkedTransferQueue;
 
 public class Program {
     public static void main(String[] args) {
-        
+
         ArrayList<Integer> list = new ArrayList<Integer>();
         getDataFromFile("src/data.txt", list);
 
         for (int i = 0; i < list.size(); i++) {
             for (int j = 0; j < i; j++) {
-                if(list.get(i) + list.get(j) == 2020) {
-                    System.out.println(list.get(i) * list.get(j));
+                for (int k = 0; k < j; k++) {  
+                    if(list.get(i) + list.get(j) + list.get(k) == 2020) {
+                        System.out.println(list.get(i) * list.get(j) * list.get(k));
+                    }
                 }
             }
         }
